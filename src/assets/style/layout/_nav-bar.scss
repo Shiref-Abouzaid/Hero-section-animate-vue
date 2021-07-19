@@ -1,0 +1,185 @@
+.nav {
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    .container {
+        max-width: 70rem;
+        margin: auto;
+        justify-content: space-between;
+        padding-top: 1rem;
+        @media (max-width: $breakpoint-mobile) { 
+            max-width: 21rem;
+        }
+        .brand {
+            z-index: -1;
+            text-align: center;
+            .logo {
+                width: 3.5rem;
+            }
+            .brand-name {
+                color: #FFF;
+                letter-spacing: .3rem;
+                text-transform: uppercase;
+            }
+        }
+        .menu {
+            .menu-icon {
+                cursor: pointer;
+                border-radius: .2rem;
+                height: 2rem;
+                width: 2rem;
+                display: flex;
+                padding: .2rem;
+                position: relative;
+                z-index: 4;
+                align-items: center;
+                &:hover {
+                    span {
+                        &:after,  &:before{
+                            left:0;
+                        }
+                    }
+                }
+                span {
+                    height: 2px;
+                    background-color: #FFF;
+                    width: 100%;
+                    margin-left: auto;
+                    position: relative;
+                    transition: .5s all ease-in;
+                    border-radius: 1rem;
+                    &:after {
+                        transition: .2s all ease-in;
+                        height: 2px;
+                        background-color: #FFF;
+                        content: "";
+                        position:absolute;
+                        bottom:-.5rem;
+                        left:.3rem;
+                        right: 0;
+                    }
+                    &:before {
+                        transition: .2s all ease-in;
+                        height: 2px;
+                        background-color: #FFF;
+                        border-radius: 1rem;
+                        content: "";
+                        position:absolute;
+                        top:-.5rem;
+                        left:.8rem;
+                        right: 0;
+                    }
+                }
+            }
+        }
+    }
+    .navegation-bar-animation-bg {
+        z-index: 2;
+        background-color: $color-success;
+        height: 100%;
+        width:18.6rem;
+        left:-19rem;
+        position:fixed;
+        transition: all .2s ease-out;
+   
+    }
+    .navegation-bar-overlay {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0,0,0,.4);
+        z-index: 1;
+        height: 100%;
+    }
+    .side-bar-container {
+        position:fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        left:-20rem;
+       
+        transition: all .3s ease-in;
+        .sibe-bar-header {
+            position: absolute;
+            color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top:0;
+            left: 0;
+            right: 0;
+            background-color:$color-danger;
+            content: "";
+            height: 7.5rem;
+            z-index: 3;
+            .brand {
+  
+                text-align: center;
+                .logo {
+                    width: 3.5rem;
+                }
+                .brand-name {
+                    color: #FFF;
+                    letter-spacing: .3rem;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+
+        .side-bar {
+            background-color:#fdf6f0;
+            padding-top: 7.5rem;
+            z-index: 2;
+            width:18rem;
+            height: 100%;
+           
+
+            .list-container {
+                list-style: none;
+                .link {
+                    color: #333;
+                    line-height: 2;
+                    text-decoration: none;
+                    padding:.5rem 1rem;
+                    display:block;
+                    text-transform: uppercase;
+                    .icon {
+                        width:1.5rem
+                    }
+                    &:hover {
+                        background-color: #f0f0f0;
+                        .icon {
+                            margin-right: .3rem;
+                            transition: .1s all ease-in;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.nav.show {
+    .navegation-bar-animation-bg {
+
+        left:0;
+    }
+    .side-bar-container {
+        left: 0;
+    }
+    .menu {
+        .menu-icon {
+            span {
+                &:after,  &:before{
+                    left:0;
+                }
+            }
+        }
+
+    }
+}

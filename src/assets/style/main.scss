@@ -1,0 +1,12 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+@import './abstracts/variables';
+@import './base/helpers';
+@import './components/explore-button', './components/plan-box';
+@import './layout/\ _header.scss', './layout/nav-bar';
+

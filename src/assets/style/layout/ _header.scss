@@ -1,0 +1,342 @@
+header {
+
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    .gate-container {
+        position:absolute;
+        animation-name: gateZoom;
+        animation-duration: 1s;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top:0;
+        z-index: 2;
+        background-image: url('assets/images/gate.png');
+        background-position: center;
+        background-size: cover;
+        
+    }
+    .main-hero {
+        min-height: 100vh;
+        width:100%;
+        background-position:center;
+        background-size: cover;
+        background-image: url('assets/images/hero-bg.jpg');
+        animation-name:heroImageZoom;
+        animation-duration: .5s;
+        display: flex;
+        flex-wrap: wrap;
+        background-position-y: 70%;
+        align-items: center;
+        justify-content: center;
+
+        @media (max-width: $breakpoint-mobile) { 
+            background-size: auto;
+            background-position-y: 100%;
+            background-size: 160%;
+        }
+
+        .hero-content {
+
+            position: relative;
+            z-index: 3;
+            @media (max-width: $breakpoint-mobile) { 
+                max-width: 21rem;
+                // min-height: 100vh;
+  
+            }
+            .hero-welcome {
+                max-width: 35rem;
+                margin: auto;
+                text-align: center;
+                @media (max-width: $breakpoint-mobile) {
+                    max-width: 85%;
+                }
+                .title {
+                    text-align: center;
+                    color: #FFF;
+                    font-size: 4rem;
+                    text-transform: uppercase;
+                    animation-name: slideUp;
+                    animation-duration: 1s;
+                    animation-delay: .5s;
+                    animation-fill-mode: forwards;
+                    transform: translateY(50rem);
+                    @media (max-width: $breakpoint-mobile) { 
+                        color: #333;
+                    }
+
+                }
+                .description {
+                    color:#FFF;
+                    margin-bottom: .8rem;
+                    animation-name: slideUp;
+                    animation-duration: 1s;
+                    animation-delay: .5s;
+                    animation-fill-mode: forwards;
+                    animation-timing-function: ease-in-out;
+                    transform: translateY(50rem);
+                    @media (max-width: $breakpoint-mobile) { 
+                        color: #333;
+                    }
+                }
+                .explore {
+                    animation-name: fadeIn;
+                    animation-duration: 1s;
+                    animation-delay: 1.5s;
+                    opacity: 0;
+                    transform: translateY(2rem);
+                    animation-fill-mode: forwards;
+                    @media (max-width: $breakpoint-mobile) { 
+                        margin: auto;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .pricing {
+        max-width: 70rem;
+       
+        .title {
+            color: #333;
+            font-size: 5rem;
+            text-transform: uppercase;
+            transform: translateY(-50rem);
+            height: 0;
+            padding-top: 8rem;
+            text-align: center;
+
+        }
+    }
+    .plans-container {
+        height: 0;
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        
+        @media (max-width: $breakpoint-mobile) { 
+            flex-wrap: wrap;
+        }
+        .plan {
+            transform: translateY(50rem);
+        }
+
+    }
+}
+header.pricing-animate {
+    .hero-content {
+
+        .hero-welcome {
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
+            animation-name: zeroHeight;
+            .title, .description {
+                animation-name: slideGoAway;
+                animation-duration: 1s;
+                animation-timing-function: ease-in-out;
+                animation-delay: 0s;
+            }
+            .explore {
+                animation-name: fadeOut;
+                animation-duration: 1s;
+                animation-delay: 0s;
+            }
+        }
+    }
+    .gate-container {
+        animation-name: goIntoTheGate;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+    .main-hero {
+        animation-name: zoomInHeroImage;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        @media (max-width: $breakpoint-mobile) {
+            animation-name: zoomInHeroImageMobile;
+        }
+    }
+
+    .pricing {
+
+        .title {
+            color: #333;
+            font-size: 5rem;
+            text-transform: uppercase;
+            animation-name:slideDown;
+            animation-duration: 1.5s;
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
+            @media (max-width: $breakpoint-mobile) { 
+                font-size: 2rem;
+            }
+            // @for $i from 1 through 8 {
+
+            //     span:nth-child(#{$i}) {
+            //         animation-name:slideDown;
+            //         animation-duration: 1.2s;
+            //         animation-delay: 1 + ($i * 0.2s);
+            //         animation-fill-mode: forwards;
+            //     }
+            // }
+        }
+    }
+    .plans-container {
+        animation-name: setHeightAuto;
+        animation-duration: 1s;
+        animation-fill-mode: forwards; 
+
+        @media (max-width: $breakpoint-mobile) { 
+         
+        }
+
+        @for $i from 1 through 3 {
+            .plan:nth-child(#{$i}) {
+                animation-name: slideUp;
+                animation-fill-mode: forwards;
+                animation-duration: 1s;
+                animation-timing-function: ease-in-out;
+                animation-delay: 1.2 +  ($i * 0.25s);
+            }
+        }
+    }
+
+ }
+ @keyframes zeroHeight {
+     0%{
+         height:auto
+     }
+     50%{
+         height: auto;
+     }
+     100%{
+         height: 0;
+     }
+ }
+ @keyframes slideDown {
+     0%{
+        transform: translateY(-50rem);
+     }
+     
+     30% {
+         transform: translateY(0);
+     }
+     60% {
+        transform: translateY(0) scale(1);
+     }
+     100% {
+        transform: translateY(-5rem) scale(0);
+     }
+ }
+
+ @keyframes setHeightAuto {
+     0%{height: 0;}
+     90%{height: 0;}
+     100%{
+         height: auto;
+
+     }
+ }
+
+ @keyframes zoomInHeroImage {
+    0% {
+        background-size: 100%;
+
+    }
+    50% {
+        background-size: 110%;
+        animation-delay: 1s;
+        background-position-y:100%
+    }
+    100%{
+        background-size: 120%;
+        background-position-y:1%;
+        
+
+    }
+ }
+ @keyframes zoomInHeroImageMobile {
+    0% {
+        background-size: 160%;
+    }
+    50% {
+        background-size: 210%;
+        animation-delay: 1s;
+        background-position-y:100%
+    }
+    100%{
+        background-size: 320%;
+        background-position-y:1%;
+        
+
+    }
+ }
+
+@keyframes goIntoTheGate {
+    from{
+        transform: scale(1);
+    }
+    to {
+        transform:scale(4)
+    }
+}
+
+@keyframes slideGoAway {
+    0%{
+        transform: scale(1);
+        opacity: 1;
+
+    }
+    100%{
+        transform: scale(0);
+        opacity: 0;
+    }
+
+}
+@keyframes slideUp {
+    to{
+        transform: translateY(0);
+        display: block!important;
+
+    }
+}
+
+@keyframes fadeOut {
+    0%{
+        opacity: 1;
+        transform:translateY(0)
+    }
+    100%{
+        opacity: 0;
+        transform:translateY(2rem)
+    }
+
+}
+
+@keyframes fadeIn {
+    to{
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+@keyframes gateZoom {
+    from{
+        transform: scale(2.5);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+  
+@keyframes heroImageZoom {
+    from{
+        transform: scale(1.8);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
