@@ -15,7 +15,9 @@ header {
         background-image: url('assets/images/gate.png');
         background-position: center;
         background-size: cover;
-        
+        @media (max-width: $breakpoint-mobile) { 
+            background-position: 40%;
+        }
     }
     .main-hero {
         min-height: 100vh;
@@ -34,7 +36,8 @@ header {
         @media (max-width: $breakpoint-mobile) { 
             background-size: auto;
             background-position-y: 100%;
-            background-size: 160%;
+            background-size: 200%;
+         
         }
 
         .hero-content {
@@ -260,10 +263,10 @@ header.pricing-animate {
  }
  @keyframes zoomInHeroImageMobile {
     0% {
-        background-size: 160%;
+        background-size: 200%;
     }
     50% {
-        background-size: 210%;
+        background-size: 250%;
         animation-delay: 1s;
         background-position-y:100%
     }
